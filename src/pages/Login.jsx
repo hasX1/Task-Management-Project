@@ -37,7 +37,7 @@ const Login = () => {
       </div>
 
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 bg-white">
-        <h1 className="text-4xl font-bold mb-8">Welcome Back!</h1>
+        <h1 className="noto-serif-oriya-wht-700 noto-serif-lg-h2 mb-8">Welcome Back!</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
 

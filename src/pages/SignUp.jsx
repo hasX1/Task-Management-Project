@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Task_Management from '../utils/Task_Management.png';
 import '../app.css';
-
+import '../main.min.css'
 // Define the validation schema using Zod
 const schema = z.object({
   username: z
@@ -44,7 +44,7 @@ const SignUp = () => {
       </div>
 
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 bg-white">
-        <h1 className="text-3xl font-bold mb-8">Create New Account</h1>
+        <h1 className=" mb-8 noto-serif-oriya-wht-700 noto-serif-lg-h2">Create New Account</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
          
