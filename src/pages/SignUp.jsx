@@ -56,6 +56,7 @@ const SignUp = () => {
               type="text"
               id="username"
               placeholder="Enter your username"
+              autoComplete="off"
               {...register('username')}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -71,6 +72,7 @@ const SignUp = () => {
               type="email"
               id="user-email"
               placeholder="Enter your email"
+              autoComplete="off"
               {...register('email')}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -86,6 +88,7 @@ const SignUp = () => {
               type="password"
               id="user-password"
               placeholder="Enter your password"
+              autoComplete="off"
               {...register('password')}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -110,10 +113,11 @@ const SignUp = () => {
             </select>
             {errors.role && <small className="text-red-500">{errors.role.message}</small>}
           </div>
-
+          
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+
           >
             Sign Up
           </button>
