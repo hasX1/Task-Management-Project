@@ -37,6 +37,8 @@ const SignUp = () => {
     reset(); 
   };
 
+
+
   return (
     <div className="flex flex-wrap h-screen">
       <div className="w-full md:w-1/2 bg-blue-300 flex justify-center items-center rounded-r-full shadow-lg hover:translate-x-0.5 transition-all">
