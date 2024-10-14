@@ -1,6 +1,4 @@
-
 import React from 'react';
-
 import PageNotFound from "./pages/PageNotFound";
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -17,33 +15,25 @@ import Tasks from './pages/Tasks';
 
 function App() {
   return (
-    <Router>
-
-      <Routes>
-      
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-
-        <Route path="*" element={<Dashboard />} />
-      </Routes>
-
-      <Provider store={store}>
+    <Provider store={store}>
+      <Router>
         <Routes>
+          {/* Default route */}
           <Route exact path="/" element={<Tasks />} />
+          
+          {/* Other routes */}
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-
-            <Route path="*" element={<PageNotFound />} />
-            {/* User Profile */}
-            <Route path="/dashboard/current-user" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          
+          {/* Protected route for dashboard */}
+          <Route path="/dashboard/current-user" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          
+          {/* Catch-all route for undefined paths */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </Provider>
-    </Router>
-
+      </Router>
+    </Provider>
   );
 }
 

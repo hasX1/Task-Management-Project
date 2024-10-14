@@ -52,13 +52,7 @@ const Login = () => {
       const userCredentials = await signInWithEmailAndPassword(auth, input.email, input.password);
       auth.currentUser = userCredentials.user;
       setLoading(false);  /*********/
-      // try {
-      //   localStorage.setItem('user', JSON.stringify({ isLogined: true }));
-      // } catch (e) {
-      //   console.error('Storage error:', e);
-      // }
-      // dispatch(authCurrent({role: role, loading: isloading, email: email}));  /*********/
-      // dispatch(authCurrent({name: userCredentials.user.displayName, loading: false, email: userCredentials.user.email,}))
+      
       navigate('/dashboard/current-user');
       console.log("User ID: ",userCredentials.user.uid, "\n", "User Email: ", userCredentials.user.email); /*********/
     } catch (error) {
