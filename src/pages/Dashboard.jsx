@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Note from '../utils/Note.png';
-import AddTaskPopup from '../components/AddTask';
+import AddTaskPopup from '../components/addTask';
 import TaskCard from '../components/TaskCard';
 import ProfileInfo from '../components/ProfileInfo';
 import app from '../components/Firebase/firebase';
@@ -113,7 +113,7 @@ const Dashboard = () => {
   const todos = tasks.filter((task) => task.type === 'Todo').length;
 
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-screen overflow-hidden"> {/* Changed from min-h-screen to h-screen */}
       <div
         className={`fixed inset-y-0 left-0 transform transition-transform duration-300 ease-in-out bg-gradient-to-b from-blue-500 to-purple-500 w-64 p-6 text-white z-10 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
@@ -129,22 +129,22 @@ const Dashboard = () => {
         <nav>
           <ul className="space-y-6">
             <li>
-              <Link to="/tasks" className="text-lg hover:bg-white/10 py-2 px-4 block rounded">
+              <Link to="/tasks" className="text-lg hover:bg-purple-600 py-2 px-4 block rounded">
                 📋 Tasks
               </Link>
             </li>
             <li>
-              <Link to="/completed" className="text-lg hover:bg-white/10 py-2 px-4 block rounded">
+              <Link to="/completed" className="text-lg hover:bg-purple-600 py-2 px-4 block rounded">
                 ✔ Completed
               </Link>
             </li>
             <li>
-              <Link to="/in-progress" className="text-lg hover:bg-white/10 py-2 px-4 block rounded">
+              <Link to="/in-progress" className="text-lg hover:bg-purple-600 py-2 px-4 block rounded">
                 ⏳ In Progress
               </Link>
             </li>
             <li>
-              <Link to="/todo" className="text-lg hover:bg-white/10 py-2 px-4 block rounded">
+              <Link to="/todo" className="text-lg hover:bg-purple-600 py-2 px-4 block rounded">
                 📝 To Do
               </Link>
             </li>
@@ -155,8 +155,10 @@ const Dashboard = () => {
       <div
         className={`flex-1 bg-gradient-to-br from-blue-700 to-purple-200 p-6 transition-all duration-300 ease-in-out ${
           isOpen ? 'md:ml-64' : 'ml-0'
-        }`}
+        } overflow-auto`} 
       >
+      
+
         <header className="flex justify-between items-center mb-6">
           <button onClick={toggleSidebar} className="text-white text-2xl md:hidden">
             ☰
@@ -172,6 +174,7 @@ const Dashboard = () => {
             <ProfileInfo />
           </div>
         </header>
+      
 
         <div className="mb-6">
           <AddTaskPopup
@@ -210,12 +213,13 @@ const Dashboard = () => {
                 task={task}
                 onDelete={() => handleDelete(task)}
                 onUpdate={() => handleUpdate(task)}
-                onComplete={() => handleCompleteTask(task)} // Pass the complete handler
+                onComplete={() => handleCompleteTask(task)} // Pass the task to mark it as completed
               />
             ))}
           </div>
         )}
       </div>
+
       <img
         src={Note}
         className={`absolute bottom-6 right-6 opacity-30 w-52 ${

@@ -6,15 +6,16 @@ const AddTaskPopup = ({ onAddTask, onUpdateTask, taskToUpdate }) => {
   const [taskDesc, setTaskDesc] = useState('');
   const [taskDate, setTaskDate] = useState('');
   const [taskType, setTaskType] = useState('Todo');
+  const [taskPriority, setTaskPriority] = useState('Medium'); // New state for priority
   const [error, setError] = useState('');
 
-  // Populate fields if a task is being updated
   useEffect(() => {
     if (taskToUpdate) {
       setTask(taskToUpdate.name);
       setTaskDesc(taskToUpdate.description);
-      setTaskDate(taskToUpdate.dueDate.split('-').reverse().join('-')); // Formatting for the date input (YYYY-MM-DD)
+      setTaskDate(taskToUpdate.dueDate.split('-').reverse().join('-'));
       setTaskType(taskToUpdate.type || 'Todo');
+      setTaskPriority(taskToUpdate.priority || 'Medium'); // Set priority
       setIsOpen(true);
     }
   }, [taskToUpdate]);
@@ -22,13 +23,11 @@ const AddTaskPopup = ({ onAddTask, onUpdateTask, taskToUpdate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validate task name
     if (!task.trim()) {
       setError('Task name is required');
       return;
     }
 
-    // Validate and parse the due date
     const dueDate = new Date(taskDate);
     const today = new Date();
     if (isNaN(dueDate.getTime()) || dueDate < today) {
@@ -36,22 +35,21 @@ const AddTaskPopup = ({ onAddTask, onUpdateTask, taskToUpdate }) => {
       return;
     }
 
-    // Prepare the task object
     const newTask = {
-      id: taskToUpdate?.id || null, // Include ID for updates
+      id: taskToUpdate?.id || null,
       name: task,
       description: taskDesc,
-      dueDate: taskDate.split('-').reverse().join('-'), // Store as DD-MM-YYYY
+      dueDate: taskDate.split('-').reverse().join('-'),
       type: taskType,
+      priority: taskPriority, // Add priority to task object
     };
 
     if (taskToUpdate) {
-      onUpdateTask(newTask); // Update task
+      onUpdateTask(newTask);
     } else {
-      onAddTask(newTask); // Add new task
+      onAddTask(newTask);
     }
 
-    // Reset fields after submission
     resetFields();
   };
 
@@ -60,6 +58,7 @@ const AddTaskPopup = ({ onAddTask, onUpdateTask, taskToUpdate }) => {
     setTaskDesc('');
     setTaskDate('');
     setTaskType('Todo');
+    setTaskPriority('Medium'); // Reset priority
     setIsOpen(false);
     setError('');
   };
@@ -79,13 +78,11 @@ const AddTaskPopup = ({ onAddTask, onUpdateTask, taskToUpdate }) => {
 
       {isOpen && (
         <>
-          {/* Overlay to close popup on click */}
           <div
             className="fixed inset-0 bg-black opacity-50 z-10"
             onClick={closePopup}
           />
 
-          {/* Popup content */}
           <div className="fixed inset-0 flex items-center justify-center z-20">
             <div className="relative bg-blue-200 p-6 rounded-lg shadow-lg w-96">
               <button
@@ -136,6 +133,19 @@ const AddTaskPopup = ({ onAddTask, onUpdateTask, taskToUpdate }) => {
                     <option value="Todo">Todo</option>
                     <option value="In Progress">In Progress</option>
                     <option value="Completed">Completed</option>
+                  </select>
+                </div>
+
+                <div className="mb-4">
+                  <label className="block mb-2">Task Priority</label>
+                  <select
+                    value={taskPriority}
+                    onChange={(e) => setTaskPriority(e.target.value)}
+                    className="w-full border p-2"
+                  >
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low">Low Priority</option>
                   </select>
                 </div>
 
