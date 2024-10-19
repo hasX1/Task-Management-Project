@@ -4,7 +4,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import app from "../components/Firebase/firebase"; 
 import TaskCard from '../components/TaskCard'; 
 
-const Tasks = () => {
+const ToDo = () => {
   const [tasks, setTasks] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [user, setUser] = useState(null);
@@ -32,10 +32,12 @@ const Tasks = () => {
             const data = snapshot.val();
 
             if (data) {
-              const fetchedTasks = Object.keys(data).map((key) => ({
-                id: key,
-                ...data[key],
-              }));
+              const fetchedTasks = Object.keys(data)
+                .map((key) => ({
+                  id: key,
+                  ...data[key],
+                }))
+                .filter((task) => task.type === 'Todo'); // Only include 'Todo' tasks
 
               setTasks(fetchedTasks);
             } else {
@@ -66,7 +68,7 @@ const Tasks = () => {
   return (
     <div className="bg-blue-400 min-h-screen p-6">
     <h1 className="text-4xl font-bold w-full text-white text-center">Task Management System</h1>
-      <h1 className="text-3xl font-bold mb-4">All Tasks</h1>
+      <h1 className="text-3xl font-bold mb-4">To Do Tasks</h1>
       {user ? (
         <>
           <input
@@ -90,4 +92,4 @@ const Tasks = () => {
   );
 };
 
-export default Tasks;
+export default ToDo;
