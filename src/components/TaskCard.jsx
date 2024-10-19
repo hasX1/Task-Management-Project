@@ -6,10 +6,10 @@ const TaskCard = ({ task, onDelete, onUpdate, onComplete }) => {
       {/* Complete Task Button */}
       <button 
         onClick={() => onComplete(task)} 
-        className="absolute top-2 right-2 bg-green-500 text-white p-1 rounded-full hover:bg-green-700"
+        className="absolute top-2 right-2 bg-green-500 text-white p-1 rounded-full hover:bg-green-700 w-8"
         title="Mark as Completed"
       >
-        ✅
+        ✓
       </button>
 
       <h3 className="text-xl font-semibold">{task.name}</h3>
