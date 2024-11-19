@@ -30,10 +30,11 @@ const AddTaskPopup = ({ onAddTask, onUpdateTask, taskToUpdate }) => {
 
     const dueDate = new Date(taskDate);
     const today = new Date();
-    if (isNaN(dueDate.getTime()) || dueDate < today) {
+    if (isNaN(dueDate.getTime()) || dueDate < today.setHours(0, 0, 0, 0)) {
       setError('Invalid or past due date');
       return;
     }
+    
 
     const newTask = {
       id: taskToUpdate?.id || null,
