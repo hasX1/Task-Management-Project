@@ -7,11 +7,11 @@ A dynamic and intuitive **Task Management System** built using **React**, **Fire
 ---
 ---
 ## Our Team
-- **Bassem Hussein
-- **Mostafa Ahmed
-- **Hesham Ahmed
-- **Mohamed Abdelnasser
-- **Ali Khaled
+- Bassem Hussein
+- Mostafa Ahmed
+- Hesham Ahmed
+- Mohamed Abdelnasser
+- Ali Khaled
 ## 🚀 Features
 
 - **Task Management:** Add, update, delete, and categorize tasks.  
