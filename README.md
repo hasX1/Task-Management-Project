@@ -5,7 +5,13 @@
 A dynamic and intuitive **Task Management System** built using **React**, **Firebase Firestore**, and **Tailwind CSS** to help users organize and track their tasks efficiently. This project is designed with user-friendly features such as task categorization, real-time updates, and seamless UI interactions.
 
 ---
-
+---
+## Our Team
+- **Bassem Hussein
+- **Mostafa Ahmed
+- **Hesham Ahmed
+- **Mohamed Abdelnasser
+- **Ali Khaled
 ## 🚀 Features
 
 - **Task Management:** Add, update, delete, and categorize tasks.  
