@@ -36,9 +36,30 @@ A dynamic and intuitive **Task Management System** built using **React**, **Fire
 3. Run the project:
   >> npm run dev
 
-#🔧 Usage
+---
 
-##1. Add Tasks: Enter the task details and categorize them.
-##2. Update or Delete Tasks: Manage tasks directly from the dashboard.
-##3. View Dashboard: Monitor task progress and key metrics.
-##4. Responsive Access: Use the app seamlessly on any device.
+## 🔧 Usage
+
+1. **Add Tasks:** Enter the task details and categorize them.  
+2. **Update or Delete Tasks:** Manage tasks directly from the dashboard.  
+3. **View Dashboard:** Monitor task progress and key metrics.  
+4. **Responsive Access:** Use the app seamlessly on any device.
+
+---
+
+## 📊 Firebase Setup
+
+To connect Firebase:  
+1. Set up a Firebase project and Firestore database.  
+2. Replace Firebase configuration in the project’s `.env` or `firebaseConfig.js` file.  
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Follow these steps:  
+1. Fork the repository.  
+2. Create a new branch:  
+   ```bash
+   git checkout -b feature-name
+
