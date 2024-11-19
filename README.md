@@ -1,17 +1,20 @@
-# Task Management Project
+# DEPI Final Project - Task Management System
 
 ![Task Management System](https://img.shields.io/badge/React-Task--Management-blue?style=for-the-badge&logo=react)
 
 A dynamic and intuitive **Task Management System** built using **React**, **Firebase Firestore**, and **Tailwind CSS** to help users organize and track their tasks efficiently. This project is designed with user-friendly features such as task categorization, real-time updates, and seamless UI interactions.
 
 ---
----
+
 ## Our Team
 - Bassem Hussein
 - Mostafa Ahmed
 - Hesham Ahmed
 - Mohamed Abdelnasser
 - Ali Khaled
+
+---
+
 ## 🚀 Features
 
 - **Task Management:** Add, update, delete, and categorize tasks.  
@@ -19,13 +22,15 @@ A dynamic and intuitive **Task Management System** built using **React**, **Fire
 - **Task Filters:** Sort tasks by categories like completed, pending, or deleted.  
 - **Firebase Integration:** Real-time task data storage and retrieval.  
 - **Responsive Design:** Optimized for devices of all sizes using Tailwind CSS.  
-- **Interactive Dashboard:** Displays task statistics and visual insights.  
+- **Interactive Dashboard:** Displays task statistics and visual insights.
+- **Sign Up and Sign In pages:** to isolate tasks of each user
+- **Forget Password page:** in case the user forgets his password
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Frontend:** React, JavaScript, Tailwind CSS, Bootstrap (not React-Bootstrap).  
+- **Frontend:** React, JavaScript, Tailwind CSS, Bootstrap.  
 - **Backend:** Firebase Firestore (for database management).  
 - **Version Control:** Git and GitHub.  
 
@@ -68,4 +73,9 @@ Contributions are welcome! Follow these steps:
 2. Create a new branch:  
    ```bash
    git checkout -b feature-name
+---
 
+## 🌐 Links
+
+- Live Demo: [Task Management System](https://task-management-system-de9f7.firebaseapp.com/)
+- GitHub Repository: [Task Management Project](https://github.com/BassemHussien/Task-Management-Project)
